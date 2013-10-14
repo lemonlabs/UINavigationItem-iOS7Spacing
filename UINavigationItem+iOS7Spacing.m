@@ -28,6 +28,9 @@
         [self mk_setLeftBarButtonItem:nil];
         [self mk_setLeftBarButtonItems:@[[self spacer], leftBarButtonItem]];
     } else {
+        if ([self isIOS7]) {
+            [self mk_setLeftBarButtonItems:nil];
+        }
         [self mk_setLeftBarButtonItem:leftBarButtonItem];
     }
 }
@@ -52,6 +55,9 @@
         [self mk_setRightBarButtonItem:nil];
         [self mk_setRightBarButtonItems:@[[self spacer], rightBarButtonItem]];
     } else {
+        if ([self isIOS7]) {
+            [self mk_setRightBarButtonItems:nil];
+        }
         [self mk_setRightBarButtonItem:rightBarButtonItem];
     }
 }
