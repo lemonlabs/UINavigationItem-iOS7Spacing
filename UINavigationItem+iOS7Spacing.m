@@ -53,7 +53,13 @@
 {
     if ([self isIOS7] && rightBarButtonItem) {
         [self mk_setRightBarButtonItem:nil];
-        [self mk_setRightBarButtonItems:@[[self spacer], rightBarButtonItem]];
+
+        // Fix position issue in system vc, eg. cancel button in UIImagePickerController
+        if (rightBarButtonItem.customView) {
+            [self mk_setRightBarButtonItems:@[[self spacer], rightBarButtonItem]];
+        } else {
+            [self mk_setRightBarButtonItem:rightBarButtonItem];
+        }
     } else {
         if ([self isIOS7]) {
             [self mk_setRightBarButtonItems:nil];
